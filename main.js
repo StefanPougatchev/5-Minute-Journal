@@ -6,12 +6,18 @@ const mainDiv = document.createElement("div");
 mainDiv.className = "mainContentArea";
 body.appendChild(mainDiv);
 
-// create the date Area nested inside mainDiv
+//*----------------- dateArea inside mainDiv  -----------------
+// creating the date Area nested inside mainDiv
 const dateDiv = document.createElement("div");
 dateDiv.id = "dateArea";
 mainDiv.appendChild(dateDiv);
 
-//create Quote Area nested inside the mainDiv
+// declaring variable dateDay and appending it to dateDiv
+const dateDay = document.createElement("h3");
+dateDay.textContent = new Date().toDateString();
+dateDiv.appendChild(dateDay);
+
+//*-------create Quote Area nested inside the mainDiv----------
 const quoteDiv = document.createElement("div");
 quoteDiv.id = "quoteArea";
 mainDiv.appendChild(quoteDiv);
@@ -175,3 +181,9 @@ for (let i = 0; i < 2; i++) {
   const howToList = document.createElement("input");
   li.appendChild(howToList);
 }
+
+//*-----------------  Save button   -----------------
+const saveButton = document.createElement("BUTTON");
+saveButton.id = "save-button";
+saveButton.textContent = "Save";
+mainDiv.appendChild(saveButton);
