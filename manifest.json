@@ -4,8 +4,11 @@
   "description": "The Five Minute Journal But Digital",
   "permissions": ["storage"],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["main.js"],
     "persistent": false
   },
-  "manifest_version": 2
+  "manifest_version": 2,
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
 }

@@ -1,3 +1,11 @@
+var quote2;
+
+fetch("https://type.fit/api/quotes")
+  .then((res) => res.json())
+  .then((data) => (quote = data))
+  .then(() => (quote2 = quote[randomNum].text))
+  .then(() => quote2);
+
 // selecting body section on HTML
 const body = document.querySelector("body");
 
@@ -18,11 +26,17 @@ dateDay.textContent = new Date().toDateString();
 dateDiv.appendChild(dateDay);
 
 //*-------create Quote Area nested inside the mainDiv----------
-const quoteDiv = document.createElement("div");
-quoteDiv.id = "quoteArea";
-mainDiv.appendChild(quoteDiv);
+// const quoteDiv = document.createElement("div");
+// quoteDiv.id = "quoteArea";
+// // quoteArea.textContent = quote2 ? quote2 :"";
+// mainDiv.appendChild(quoteDiv);
 
+// const quoteText = document.createElement("p");
+// quoteText.textContent = quote2 ? quote2 : "";
+// quoteDiv.appendChild(quoteText);
 //create the DaytimeContent area
+// const quoteAuthor = document.createElement('p');
+
 //includes three 3 nested divs gratefulArea, greatArea,Daily Affirmations
 
 const daytimeContent = document.createElement("div");
@@ -187,3 +201,26 @@ const saveButton = document.createElement("BUTTON");
 saveButton.id = "save-button";
 saveButton.textContent = "Save";
 mainDiv.appendChild(saveButton);
+
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+const randomNum = getRandomArbitrary(0, 1643);
+
+//*-----------------  Fetch Call   -----------------
+
+// fetch("https://type.fit/api/quotes")
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     let quote = data[randomNum].text;
+//     let author = data[randomNum].author;
+//     let arr = [quote, author];
+//     console.log(arr);
+//   });
+
+//console.log(quote);
+// console.log(data[randomNum][text])
+
+console.log(quote2);
