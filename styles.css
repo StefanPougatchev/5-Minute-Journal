@@ -1,12 +1,20 @@
 * {
   box-sizing: border-box;
-  /* background-color: red; */
+  background-color: lightgrey;
 }
 
+#mainContentArea {
+  background-color: white;
+}
 body,
 html {
   margin: 0;
   padding: 0;
+}
+
+p {
+  font-style: italic;
+  font-size: 270px;
 }
 
 body {
@@ -21,6 +29,8 @@ body {
 
 h2 {
   font-size: 32px;
+  /* margin-top: 100px; */
+  padding-top: 5px;
 }
 
 p {
@@ -36,10 +46,19 @@ p {
 
 input {
   border: none;
+  border-bottom: 1px solid grey;
+  width: 80%;
 }
 
 #daytimeContent {
   margin-bottom: 10px;
+}
+
+#quoteArea {
+  font-size: 150%;
+  text-align: center;
+  border: 1px lightcyan;
+  padding-bottom: 20px;
 }
 
 .questions-section {
@@ -79,7 +98,8 @@ li {
 
 #save-button {
   text-align: center;
-  padding: 10px 15px;
+  margin-left: 300px;
+  padding: 15px 35px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 50px;

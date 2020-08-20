@@ -1,10 +1,4 @@
-var quote2;
-
-fetch("https://type.fit/api/quotes")
-  .then((res) => res.json())
-  .then((data) => (quote = data))
-  .then(() => (quote2 = quote[randomNum].text))
-  .then(() => quote2);
+const storage = {};
 
 // selecting body section on HTML
 const body = document.querySelector("body");
@@ -26,10 +20,33 @@ dateDay.textContent = new Date().toDateString();
 dateDiv.appendChild(dateDay);
 
 //*-------create Quote Area nested inside the mainDiv----------
-// const quoteDiv = document.createElement("div");
-// quoteDiv.id = "quoteArea";
-// // quoteArea.textContent = quote2 ? quote2 :"";
-// mainDiv.appendChild(quoteDiv);
+
+const randomNum = getRandomArbitrary(0, 1643);
+
+function fetchQuote() {
+  const quoteDiv = document.createElement("div");
+  quoteDiv.id = "quoteArea";
+  mainDiv.appendChild(quoteDiv);
+  let quotes;
+  let authorText;
+  let quoteText;
+  let displayQuote = document.createElement("p");
+  //displayQuote.textContent = quote2;
+  quoteDiv.appendChild(displayQuote);
+  let authorNameDisplay = document.createElement("p");
+  authorNameDisplay.id = "authorName";
+  quoteDiv.appendChild(authorNameDisplay);
+
+  fetch("https://type.fit/api/quotes")
+    .then((res) => res.json())
+    .then((data) => (quotes = data))
+    .then(() => (quoteText = quotes[randomNum].text))
+    .then(() => (displayQuote.textContent = quoteText))
+    .then(() => (authorText = quotes[randomNum].author))
+    .then(() => (authorNameDisplay.textContent = ` - ${authorText} -`));
+}
+
+fetchQuote();
 
 // const quoteText = document.createElement("p");
 // quoteText.textContent = quote2 ? quote2 : "";
@@ -38,7 +55,6 @@ dateDiv.appendChild(dateDay);
 // const quoteAuthor = document.createElement('p');
 
 //includes three 3 nested divs gratefulArea, greatArea,Daily Affirmations
-
 const daytimeContent = document.createElement("div");
 daytimeContent.id = "daytimeContent";
 mainDiv.appendChild(daytimeContent);
@@ -205,7 +221,6 @@ mainDiv.appendChild(saveButton);
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-const randomNum = getRandomArbitrary(0, 1643);
 
 //*-----------------  Fetch Call   -----------------
 
@@ -223,4 +238,4 @@ const randomNum = getRandomArbitrary(0, 1643);
 //console.log(quote);
 // console.log(data[randomNum][text])
 
-console.log(quote2);
+//console.log(quote2);
